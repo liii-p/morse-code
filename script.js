@@ -1,56 +1,31 @@
-import { translation, morseCode } from "./translation.js";
+import { morseCode, toEnglish } from "./translation.js";
+import { getInput, convertToMorse, convertToEng } from "./dom.js";
 
-const morse = document.getElementById("morseBox");
+const morseInput = document.getElementById("morseBox");
 const engInput = document.querySelector("#englishBox");
 const translateBtn = document.getElementById("translate");
+const clearBtn = document.getElementById("clear");
 
 // to output english converted to morse...
 // can use .map to iterate through all of the characters (including spaces)
 
 // console.log(engInput);
 
-function getInput() {
-    if (engInput.value === null || engInput.value === undefined) {
-        return "";
+translateBtn.addEventListener("click", () => {
+    if (engInput.innerText === true) {
+        morseInput.innerText = convertToMorse(getInput(engInput), morseCode);
+        console.log(morseCode);
     } else {
-        return engInput;
+        engInput.innerText = convertToEng(getInput(morseInput), toEnglish);
+        console.log(toEnglish);
     }
-}
-
-const convertToMorse = (str) => {
-    return str
-        .toUpperCase()
-        .split("")
-        .map((word) => {
-            return morseCode[word] ? morseCode[word] : word;
-        })
-        .join("");
-};
-
-const morseToEng = (str) => {
-    return str.split("/").map((word) => {
-        return;
-    });
-};
-console.log(convertToMorse("Hello"));
-
-// translateBtn.addEventListener("click", () => {
-//     if (getInput === null || getInput === undefined) {
-//         return morse.textContent("");
-//     } else {
-//         const translatedString = translation(getInput.value);
-//         morse.textContent === translatedString;
-//     }
-//     console.log(translation);
-// });
-
-engInput.addEventListener("input", () => {
-    const input = getInput();
-    morse.innerText === convertToMorse(input).toString();
 });
 
-morse.addEventListener("input", () => {
-    const input = getInput;
+clearBtn.addEventListener("click", () => {
+    engInput.value = "";
+    morseInput.value = "";
 });
+
+console.log(clearBtn);
 
 console.log(translateBtn);
