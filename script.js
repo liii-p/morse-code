@@ -12,12 +12,11 @@ const clearBtn = document.getElementById("clear");
 // console.log(engInput);
 
 translateBtn.addEventListener("click", () => {
-    if (engInput.innerText === true) {
-        morseInput.innerText = convertToMorse(getInput(engInput), morseCode);
-        console.log(morseCode);
+    console.log(engInput.value);
+    if (engInput.value !== "") {
+        morseInput.innerHTML = convertToMorse(engInput.value, morseCode);
     } else {
-        engInput.innerText = convertToEng(getInput(morseInput), toEnglish);
-        console.log(toEnglish);
+        engInput.innerHTML = convertToEng(morseInput.value, toEnglish);
     }
 });
 

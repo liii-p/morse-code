@@ -20,7 +20,10 @@ const convertToMorse = (str, object) => {
 
 const convertToEng = (str, obj) => {
     console.log(`Morse input: ${str}`);
-    return str.split(" ").map((char) => {
-        return obj[char] ? obj[char] : char;
-    });
+    return str
+        .split(" ")
+        .map((char) => {
+            return obj[char] ? obj[char] : char;
+        })
+        .join("");
 };
