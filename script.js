@@ -12,19 +12,16 @@ const clearBtn = document.getElementById("clear");
 // console.log(engInput);
 
 translateBtn.addEventListener("click", () => {
-    console.log(engInput.value);
-    if (engInput.value !== "") {
-        morseInput.innerHTML = convertToMorse(engInput.value, morseCode);
-    } else {
-        engInput.innerHTML = convertToEng(morseInput.value, toEnglish);
-    }
+  console.log(engInput.value);
+  if (engInput.value !== "") {
+    morseInput.value = convertToMorse(engInput.value, morseCode);
+  } else {
+    console.log(morseInput.value);
+    engInput.value = convertToEng(morseInput.value, toEnglish);
+  }
 });
 
 clearBtn.addEventListener("click", () => {
-    engInput.value = "";
-    morseInput.value = "";
+  engInput.value = "";
+  morseInput.value = "";
 });
-
-console.log(clearBtn);
-
-console.log(translateBtn);
